@@ -1,0 +1,12 @@
+Algoritmo metodoResolucao{
+	char[] C1	( C1={P,~Q,R}, C2={~P,Q}, C3={~R} )
+	char[] C2	(cláusulas na forma de conjuntos)
+	char[] C3	(Ex: H={{C1},{C2},{C3}
+	int i
+
+	for i de 0 até i < C1.tam{
+		divide string em subpartes...
+
+	for c2.tam
+
+	for c3.tam
