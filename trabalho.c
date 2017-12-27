@@ -8,40 +8,40 @@ char* string_substring(char str[], int start, int end);
 int main(){
 	char form[100], *substring;
 	int i,ini,pos=0;
-    File *arquivo;
+    	File *arquivo;
     
-    arquivo = fopen("arquivo.txt", "w");
+    	arquivo = fopen("arquivo.txt", "w");
     
     
-    printf("Insira o conjunto de cláusulas na forma de conjuntos: ");
+    	printf("Insira o conjunto de cláusulas na forma de conjuntos: ");
+
 	gets(form); 
 	
 	for(i=0;(i+1)<strlen(form);i++){
-	ini = i+1;
-	while(form[i]!='}'){
-		i++;
-	}
+		ini = i+1;
 	
-	pos= i+1;
+		while(form[i]!='}'){
+			i++;
+		}
 	
-	substring = string_substring(form,ini,pos); 
+		pos= i+1;
 	
-	//printf("A substring: %s\n", substring);
+		substring = string_substring(form,ini,pos); 
+	
+		//printf("A substring: %s\n", substring);
+    	}
     
-    
-    //usando fprintf para armazenar a string no arquivo
-    fprintf(arquivo, "%s", substring);
+    	//usando fprintf para armazenar a string no arquivo
+    	fprintf(arquivo, "%s", substring);
  
-    //usando fclose para fechar o arquivo
-    fclose(arquivo);
- 
-        
-}
+    	//usando fclose para fechar o arquivo
+    	fclose(arquivo);
 
-/*printf("%d",strlen(form));*/
+	/*printf("%d",strlen(form));*/
 
  exit(0);
 }
+
 char* string_substring(char str[], int start, int end) {
     int i, j;
     char *sub; 
