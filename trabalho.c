@@ -1,13 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <conio.h>
 
 char* string_substring(char str[], int start, int end);
 
 int main(){
 	char form[100], *substring;
 	int i,ini,pos=0;
-
+    File *arquivo;
+    
+    arquivo = fopen("arquivo.txt", "w");
+    
+    
+    printf("Insira o conjunto de cláusulas na forma de conjuntos: ");
 	gets(form); 
 	
 	for(i=0;(i+1)<strlen(form);i++){
@@ -15,12 +21,25 @@ int main(){
 	while(form[i]!='}'){
 		i++;
 	}
-	pos=i+1;
+	
+	pos= i+1;
 	
 	substring = string_substring(form,ini,pos); 
-	printf("A substring: %s\n", substring);
+	
+	//printf("A substring: %s\n", substring);
+    
+    
+    //usando fprintf para armazenar a string no arquivo
+    fprintf(arquivo, "%s", substring);
+ 
+    //usando fclose para fechar o arquivo
+    fclose(arquivo);
+ 
+        
 }
-printf("%d",strlen(form));
+
+/*printf("%d",strlen(form));*/
+
  exit(0);
 }
 char* string_substring(char str[], int start, int end) {
