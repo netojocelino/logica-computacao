@@ -28,12 +28,14 @@ int main(){
 	
 		substring = string_substring(form,ini,pos); 
 	
+		//usando fprintf para armazenar a string no arquivo
+ 	   	fprintf(arquivo, "%s", substring);
+ 
+		
 		//printf("A substring: %s\n", substring);
     	}
     
-    	//usando fprintf para armazenar a string no arquivo
-    	fprintf(arquivo, "%s", substring);
- 
+    	
     	//usando fclose para fechar o arquivo
     	fclose(arquivo);
 
