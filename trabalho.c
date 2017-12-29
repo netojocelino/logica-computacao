@@ -1,14 +1,32 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/* 
+ * File:   main.c
+ * Author: Thiago
+ *
+ * Created on 28 de Dezembro de 2017, 14:43
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <conio.h>
+
 
 char* string_substring(char str[], int start, int end);
 
 int main(){
 	char form[100], *substring;
-	int i,ini,pos=0;
-    	File *arquivo;
+	char clausulas[32][32]; // Variável para separação de cláusulas e resolução
+                                // Ex: clausulas[0][0-(numero de caracteres da clausula]: {A,B,C}
+                                // clausulas[1][0 - ...]: {~A,~B,~C}
+                                // compara(como fazer?) clausulas [0][0-...] com clausulas [1][0-...]
+                                // resposta na próxima linha: clausulas[2][0-...] : {} CLÁUSULA VAZIA DECORRENTE DA COMPARAÇÃO DAS CLÁUSULAS ANTERIORES
+        int i,ini,pos=0;
+    	FILE *arquivo;
     
     	arquivo = fopen("arquivo.txt", "w");
     
@@ -24,18 +42,19 @@ int main(){
 			i++;
 		}
 	
-		pos= i+1;
+		pos = i+1;
 	
 		substring = string_substring(form,ini,pos); 
 	
 		//usando fprintf para armazenar a string no arquivo
- 	   	fprintf(arquivo, "%s", substring);
+ 	   	fprintf(arquivo, "%s\r\n", substring);
  
 		
 		//printf("A substring: %s\n", substring);
     	}
     
     	
+        
     	//usando fclose para fechar o arquivo
     	fclose(arquivo);
 
