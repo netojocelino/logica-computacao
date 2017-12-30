@@ -25,7 +25,7 @@ int main(){
                                 // clausulas[1][0 - ...]: {~A,~B,~C}
                                 // compara(como fazer?) clausulas [0][0-...] com clausulas [1][0-...]
                                 // resposta na próxima linha: clausulas[2][0-...] : {} CLÁUSULA VAZIA DECORRENTE DA COMPARAÇÃO DAS CLÁUSULAS ANTERIORES
-        int i,ini,pos=0;
+        int i, j, ini, pos=0;
     	FILE *arquivo;
     
     	arquivo = fopen("arquivo.txt", "w");
@@ -52,11 +52,29 @@ int main(){
 		
 		//printf("A substring: %s\n", substring);
     	}
-    
     	
+	/* Solução através de matriz de caracteres
+	
+        for(i = 0; i < 32; i++){
+            for(j = 0; j < 32; j++){
+                // Codigo para ler linha por linha do arquivo e adicionar na matriz de caracteres
+                
+            }
+        }
         
-    	//usando fclose para fechar o arquivo
-    	fclose(arquivo);
+	for(i = 0; i < 32; i++){
+            for(j = 0; j < 32; j++){
+                printf("%c", clausulas[i][j]);
+                //Imprimir caracteres linha por linha
+            }
+	    printf("\n");
+        }
+        
+	*/
+       
+    	
+	//usando fclose para fechar o arquivo
+	fclose(arquivo);
 
 	/*printf("%d",strlen(form));*/
 
@@ -83,4 +101,3 @@ char* string_substring(char str[], int start, int end) {
      
      
     return sub;
-}
