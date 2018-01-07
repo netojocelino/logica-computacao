@@ -15,6 +15,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+// Criando a enumeração:
+enum boolean {
+    true = 1, false = 0
+};
+// Permitindo a sua declaração como um tipo qualquer:
+typedef  enum boolean  bool;
 
 char* string_substring(char str[], int start, int end);
 
@@ -74,7 +80,7 @@ int main(){
                 
                 //printf("%c \n", c);
                 
-                if((c > 64 && c < 91) || (c > 96 && c < 123)){
+                    if((c > 64 && c < 91) || (c > 96 && c < 123)){
                     clausulas[l][k] = c ;
                     k = k + 1;
                 }else{
@@ -129,11 +135,9 @@ int main(){
                     for(k = 0 ; k < 32 ; k++){
                         
                         // Maiúsculo (65-90) encontra minúsculo(97-122), Maiúsculo(true), minúsculo (false)
-                        if( ((clausulas[i][j] > 64 && clausulas[i][j] < 91)) == (( (clausulas[l][k] - 32) > 64 && (clausulas[l][k] - 32) < 91 )) ){
+                        if( (clausulas[i][j]) ==  ((clausulas[l][k] - 32)) ){
                             
-                            clausulas[m = contEtapa][n] = " ";
-                            
-                            n = n + 1;
+                            clausulas[m = contEtapa][n] = 0;
                             
                             for(n ; n < 32 ; n++){
                                 
@@ -159,9 +163,9 @@ int main(){
                         }
                         
                         // Minúsculo(97-122) encontra  Maiúsculo (65-90), Maiúsculo(true), minúsculo (false)
-                        if( ((clausulas[i][j] > 96 && clausulas[i][j] < 123)) == (( (clausulas[l][k] + 32) > 96 && (clausulas[l][k] + 32) < 123 )) ){
+                        if( (clausulas[i][j]) ==  (clausulas[l][k] + 32) ){
                                                         
-                            clausulas[m = contEtapa][n] = " ";
+                            clausulas[m = contEtapa][n] = 0;
                             
                             n = n + 1;
                             
@@ -198,19 +202,38 @@ int main(){
             
         }
         
-        for(i = 0; i < 32; i++){
+        int auxVar;
+        bool booleano = false;
+        
+        for( auxVar = 0; auxVar < 32; auxVar++){
+              
+            if((clausulas[m = contEtapa][auxVar] > 64 && clausulas[m = contEtapa][auxVar] < 91) || ((clausulas[m = contEtapa][auxVar] > 96) && (clausulas[m = contEtapa][auxVar] < 123)) )
+                booleano = true;
+            else
+                booleano = false;
+        }
+        
+/*        for(i = 0; i < 32; i++){
             
             for(j = 0; j < 32; j++){
-                if((clausulas[i][j] > 64 && clausulas[i][j] < 91) || (clausulas[i][j] > 96 && clausulas[i][j] < 123) || clausulas[i][j] == 32 /* espaço vazio que representa resolução " " */)
+                if((clausulas[i][j] > 64 && clausulas[i][j] < 91) || (clausulas[i][j] > 96 && clausulas[i][j] < 123))
                     printf("%c", clausulas[i][j]);
-       
+          
             }
             
             printf("\n");
 
         }
-        
+
+*/         
     	//usando fclose para fechar o arquivo
+
+        if(booleano)
+            printf("É satisfatível.");
+        else
+            printf("Não é satisfatível.");
+        
+        
     	fclose(arquivo);
 
 	/*printf("%d",strlen(form));*/
