@@ -1,0 +1,6 @@
+b) Em quais salas é possível chegar partindo da sala 1?
+R: 2.
+c) Há alguma sala inalcançável a partir das demais?
+R: Sim. A 5. Posso começar por ela, mas não posso chegar à ela a partir de outra.
+d) Quais salas são becos sem saída?
+R: 2, 8, 10, 18 e 20.
